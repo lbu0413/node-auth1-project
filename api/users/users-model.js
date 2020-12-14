@@ -4,6 +4,10 @@ module.exports = {
     find(){
         return db('users').select('id', 'username', 'password').orderBy('id')
     },
+    findBy(filter){
+        return db('users').where(filter).first().orderBy('id')
+    },
+
     findById(id){
         return db('users').where({ id }).first()
     },
